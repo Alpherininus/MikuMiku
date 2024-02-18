@@ -1,15 +1,8 @@
 {
   "pack": {
-    "description": "Fun Project \u00A7dMikuMiku \u00A7fresources.",
+    "description": "mikumiku resources.",
     "pack_format": 10,
     "forge:resource_pack_format": 9,
     "forge:data_pack_format": 10
-  },
-  "language": {
-    "ms_wr": {
-      "name": "Mikuspeak",
-      "region": "Miku Republic",
-      "bidirectional": false
-    }
   }
 }

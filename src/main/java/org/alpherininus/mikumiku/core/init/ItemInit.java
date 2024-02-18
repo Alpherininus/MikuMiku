@@ -16,7 +16,7 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.MIKU_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Item> MIKU_SWORD = ITEMS.register("miku_sword",
-            () -> new SwordItem(Tiers.NETHERITE, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
+            () -> new SwordItem(Tiers.WOOD, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static void register(IEventBus eventBus) {
