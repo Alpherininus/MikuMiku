@@ -19,6 +19,7 @@ public class ItemInit {
             () -> new SwordItem(Tiers.WOOD, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
