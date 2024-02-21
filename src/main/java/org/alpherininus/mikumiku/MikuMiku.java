@@ -13,7 +13,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.alpherininus.mikumiku.core.init.BlockInit;
 import org.alpherininus.mikumiku.core.init.ItemInit;
 import org.slf4j.Logger;
 
@@ -26,9 +25,7 @@ public class MikuMiku {
     public MikuMiku() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        BlockInit.BLOCKS.register(modEventBus);
         ItemInit.ITEMS.register(modEventBus);
-
 
         modEventBus.addListener(this::commonSetup);
 
