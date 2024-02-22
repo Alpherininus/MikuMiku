@@ -2,5 +2,7 @@
   "item.mikumiku.miku_block": "Miku Block",
   "item.mikumiku.miku_sword": "Miku Sword",
 
-  "block.mikumiku.miku_block": "Miku Block"
+  "block.mikumiku.miku_block": "Miku Block",
+
+  "entity.minecraft.villager.mikumiku.miku_master": "Miku Villager"
 }

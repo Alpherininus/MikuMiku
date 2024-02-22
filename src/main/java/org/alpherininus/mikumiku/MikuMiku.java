@@ -2,7 +2,6 @@ package org.alpherininus.mikumiku;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -12,8 +11,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
+import org.alpherininus.mikumiku.core.init.BlockInit;
 import org.alpherininus.mikumiku.core.init.ItemInit;
+import org.alpherininus.mikumiku.core.init.PaintingInit;
+import org.alpherininus.mikumiku.core.init.VillagerInit;
 import org.slf4j.Logger;
 
 @Mod(MikuMiku.MODID)
@@ -25,7 +26,10 @@ public class MikuMiku {
     public MikuMiku() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ItemInit.ITEMS.register(modEventBus);
+        ItemInit.register(modEventBus);
+        BlockInit.register(modEventBus);
+        VillagerInit.register(modEventBus);
+        PaintingInit.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -33,8 +37,9 @@ public class MikuMiku {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM COMMON SETUP");
-        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        event.enqueueWork(()-> {
+            VillagerInit.registerPOIs();
+        });
     }
 
     @SubscribeEvent
