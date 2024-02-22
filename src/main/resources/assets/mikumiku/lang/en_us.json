@@ -4,5 +4,7 @@
 
   "block.mikumiku.miku_block": "Miku Block",
 
-  "entity.minecraft.villager.mikumiku.miku_master": "Miku Villager"
+  "entity.minecraft.villager.mikumiku.miku_master": "Miku Villager",
+
+  "death.attack.mikumiku.Magic": "Würd mir stinken wenn ich du wäre!"
 }
