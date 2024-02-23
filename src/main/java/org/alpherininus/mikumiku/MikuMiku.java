@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.alpherininus.mikumiku.client.networking.Messages;
 import org.alpherininus.mikumiku.core.init.BlockInit;
 import org.alpherininus.mikumiku.core.init.ItemInit;
 import org.alpherininus.mikumiku.core.init.PaintingInit;
@@ -42,7 +41,6 @@ public class MikuMiku {
             VillagerInit.registerPOIs();
         });
 
-        Messages.register();
     }
 
     @SubscribeEvent

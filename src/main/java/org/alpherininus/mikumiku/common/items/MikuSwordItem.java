@@ -1,12 +1,8 @@
 package org.alpherininus.mikumiku.common.items;
 
-import com.mojang.brigadier.StringReader;
+import com.mojang.logging.LogUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -14,21 +10,19 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import org.alpherininus.mikumiku.client.networking.Messages;
-import org.alpherininus.mikumiku.client.networking.packet.ExampleC2SPacket;
+import org.alpherininus.mikumiku.MikuMiku;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import java.util.List;
 
 public class MikuSwordItem extends SwordItem {
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     public MikuSwordItem(Tier tier, int attack, float speed, Properties properties) {
         super(tier, attack, speed, properties);
@@ -42,7 +36,7 @@ public class MikuSwordItem extends SwordItem {
             player.getCooldowns().addCooldown(this, 20);
 
             if (getRandomNumber() == 3) {
-                Messages.sendToServer(new ExampleC2SPacket());
+
             }
             if (getRandomNumber() == 1) {
                 player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 300, 1));
@@ -54,7 +48,7 @@ public class MikuSwordItem extends SwordItem {
                 player.addEffect(new MobEffectInstance(MobEffects.POISON, 150, 1));
             }
             if (getRandomNumber() == 9) {
-                player.hurt(new DamageSource("mikumiku.Magic"), 0.5f);
+                player.hurt(new DamageSource(MikuMiku.MODID + ".Magic"), 0.5f);
             }
             if (getRandomNumber() == 2) {
                 player.level.disconnect();
@@ -66,7 +60,8 @@ public class MikuSwordItem extends SwordItem {
 
             }
             if (getRandomNumber() == 8) {
-                level.playSound(player, new BlockPos(0, 0, 0), SoundEvents.AMBIENT_CAVE, SoundSource.AMBIENT, 1.0f, 1.0f);
+                level.playSound(null, player.getOnPos(), SoundEvents.AMBIENT_CAVE, SoundSource.AMBIENT, 0.5F, level.random.nextFloat() * 0.1f + 0.9F);
+
             }
             if (getRandomNumber() == 0) {
                 player.sendSystemMessage(Component.literal(" "));
@@ -76,7 +71,8 @@ public class MikuSwordItem extends SwordItem {
     }
 
     private void outputRandomNumber(Player player) {
-        player.sendSystemMessage(Component.literal("Your Number is " + getRandomNumber()));
+        LOGGER.info("MikuSwordItem || " + player.getName().getString() + " Number is " + getRandomNumber());
+
     }
 
     private int getRandomNumber() {
