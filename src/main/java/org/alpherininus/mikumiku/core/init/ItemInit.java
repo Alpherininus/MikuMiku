@@ -1,6 +1,7 @@
 package org.alpherininus.mikumiku.core.init;
 
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,6 +18,9 @@ public class ItemInit {
             () -> new MikuSwordItem(Tiers.WOOD, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
+    public static final RegistryObject<Item> DK_SPAWN_EGG = ITEMS.register("dk_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypesInit.DK, 0x22b341, 0x19732e,
+                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

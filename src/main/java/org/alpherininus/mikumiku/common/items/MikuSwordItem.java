@@ -2,6 +2,7 @@ package org.alpherininus.mikumiku.common.items;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -71,7 +72,7 @@ public class MikuSwordItem extends SwordItem {
     }
 
     private void outputRandomNumber(Player player) {
-        LOGGER.info("MikuSwordItem || " + player.getName().getString() + " Number is " + getRandomNumber());
+        LOGGER.info("MikuSwordItem || " + Minecraft.getInstance().getUser().getName() + " Number is " + getRandomNumber());
 
     }
 
