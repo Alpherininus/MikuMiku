@@ -15,7 +15,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class DeathKnightRenderer extends GeoEntityRenderer<DeathKnightEntity> {
     public DeathKnightRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new DeathKnightModel());
-        this.shadowRadius = 1.1f;
+        this.shadowRadius = 0.95f;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class DeathKnightRenderer extends GeoEntityRenderer<DeathKnightEntity> {
                                     @Nullable MultiBufferSource bufferSource,
                                     @Nullable VertexConsumer buffer, int packedLight,
                                     ResourceLocation texture) {
-        poseStack.scale(1.0f, 1.0f, 1.0f);
+        poseStack.scale(1.5f, 1.5f, 1.5f);
 
         return super.getRenderType(animatable, partialTick, poseStack, bufferSource, buffer, packedLight, texture);
     }
