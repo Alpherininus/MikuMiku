@@ -1,8 +1,11 @@
 package org.alpherininus.mikumiku.common.entitys.animated;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -19,6 +22,8 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -30,6 +35,8 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class DeathKnightEntity extends Monster implements IAnimatable {
+    private final ServerBossEvent bossEvent = (ServerBossEvent)(new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS)).setDarkenScreen(false);
+
     private final AnimationFactory factory = new AnimationFactory(this);
 
     public DeathKnightEntity(EntityType<? extends Monster> dk, Level level) {
@@ -91,10 +98,24 @@ public class DeathKnightEntity extends Monster implements IAnimatable {
         return factory;
     }
 
+    @Override
+    protected void customServerAiStep() {
+        if (level.isNight()) {
+            if (this.tickCount % 20 == 0) {
+                this.heal(10.0F);
+            }
+        }
 
+        if (this.tickCount % 20 == 0) {
+            this.heal(1.0F);
+        }
+
+        this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
+
+    }
 
     @Override
-    protected void playStepSound(BlockPos pos, BlockState state) {
+    protected void playStepSound(@NotNull BlockPos pos, @NotNull BlockState state) {
         this.playSound(SoundEvents.IRON_GOLEM_STEP, 0.15f, level.random.nextFloat() * 0.1f + 0.9F);
     }
 
@@ -105,7 +126,7 @@ public class DeathKnightEntity extends Monster implements IAnimatable {
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource p_33034_) {
+    protected SoundEvent getHurtSound(@NotNull DamageSource dmS) {
         return SoundEvents.ENDER_DRAGON_HURT;
     }
 
@@ -117,6 +138,19 @@ public class DeathKnightEntity extends Monster implements IAnimatable {
     @Override
     protected float getSoundVolume() {
         return level.random.nextFloat() * 0.2f + 0.8F;
+    }
+
+    public void makeStuckInBlock(@NotNull BlockState state, @NotNull Vec3 vec3) {
+    }
+
+    public void startSeenByPlayer(@NotNull ServerPlayer serverPlayer) {
+        super.startSeenByPlayer(serverPlayer);
+        this.bossEvent.addPlayer(serverPlayer);
+    }
+
+    public void stopSeenByPlayer(@NotNull ServerPlayer serverPlayer) {
+        super.stopSeenByPlayer(serverPlayer);
+        this.bossEvent.removePlayer(serverPlayer);
     }
 }
 
