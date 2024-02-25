@@ -13,6 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.alpherininus.mikumiku.MikuMiku;
 import org.alpherininus.mikumiku.common.entitys.animated.DeathKnightEntity;
+import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
 import org.alpherininus.mikumiku.core.init.EntityTypesInit;
 import org.alpherininus.mikumiku.core.init.ItemInit;
 import org.alpherininus.mikumiku.core.init.VillagerInit;
@@ -73,6 +74,8 @@ public class MikuEvents {
         @SubscribeEvent
         public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
             event.put(EntityTypesInit.DK.get(), DeathKnightEntity.setAttributes());
+            event.put(EntityTypesInit.TP.get(), TPosingEntity.setAttributes());
+
         }
 
     }

@@ -12,7 +12,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.renderer.DeathKnightRenderer;
+import org.alpherininus.mikumiku.common.entitys.animated.renderer.TPosingRenderer;
 import org.alpherininus.mikumiku.core.init.*;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
@@ -57,6 +59,8 @@ public class MikuMiku {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(EntityTypesInit.DK.get(), DeathKnightRenderer::new);
+            EntityRenderers.register(EntityTypesInit.TP.get(), TPosingRenderer::new);
+
         }
     }
 }
