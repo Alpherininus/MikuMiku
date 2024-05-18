@@ -5,7 +5,7 @@
   "block.mikumiku.miku_block": "Miku Block",
 
   "entity.mikumiku.stairs": "Stair, Godslayer of Oak",
-  "entity.mikumiku.stairs.ph2": "Stair, Godslayer of Night",
+  "death.attack.mikumiku.Stairs": "Stair, Godslayer of Oak - Wooded Magic",
 
   "entity.minecraft.villager.mikumiku.miku_master": "Miku Villager",
 
