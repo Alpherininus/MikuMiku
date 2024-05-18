@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.alpherininus.mikumiku.MikuMiku;
 import org.alpherininus.mikumiku.common.entitys.animated.DeathKnightEntity;
+import org.alpherininus.mikumiku.common.entitys.animated.StairsEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
 
 public class EntityTypesInit {
@@ -25,9 +26,9 @@ public class EntityTypesInit {
                     .sized(1f, 2.0f)
                     .build(new ResourceLocation(MikuMiku.MODID, "tposing").toString()));
 
-    public static final RegistryObject<EntityType<TPosingEntity>> STAIRS =
-            ENTITY_TYPES.register("stairs", () -> EntityType.Builder.of(TPosingEntity::new, MobCategory.MONSTER)
-                    .sized(1f, 1f)
+    public static final RegistryObject<EntityType<StairsEntity>> STAIRS =
+            ENTITY_TYPES.register("stairs", () -> EntityType.Builder.of(StairsEntity::new, MobCategory.MONSTER)
+                    .sized(1.0f, 1.0f)
                     .build(new ResourceLocation(MikuMiku.MODID, "stairs").toString()));
 
     public static void register(IEventBus eventBus) {

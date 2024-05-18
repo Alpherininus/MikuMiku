@@ -4,6 +4,9 @@
 
   "block.mikumiku.miku_block": "Miku Block",
 
+  "entity.mikumiku.stairs": "Stair, Godslayer of Oak",
+  "entity.mikumiku.stairs.ph2": "Stair, Godslayer of Night",
+
   "entity.minecraft.villager.mikumiku.miku_master": "Miku Villager",
 
   "death.attack.mikumiku.Magic": "Würd mir stinken wenn ich du wäre!",

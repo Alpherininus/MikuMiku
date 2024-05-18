@@ -15,13 +15,12 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class StairsRenderer extends GeoEntityRenderer<StairsEntity> {
     public StairsRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new StairsModel());
-        this.shadowRadius = 0.95f;
+        this.shadowRadius = 0.93f;
     }
 
     @Override
     public ResourceLocation getTextureLocation(StairsEntity animatable) {
         return new ResourceLocation(MikuMiku.MODID, "textures/entity/boss/stairs.png");
-
     }
 
     @Override
@@ -29,7 +28,7 @@ public class StairsRenderer extends GeoEntityRenderer<StairsEntity> {
                                     @Nullable MultiBufferSource bufferSource,
                                     @Nullable VertexConsumer buffer, int packedLight,
                                     ResourceLocation texture) {
-        poseStack.scale(0.5f, 0.5f, 0.5f);
+        poseStack.scale(0.955f, 0.955f, 0.955f);
 
         return super.getRenderType(animatable, partialTick, poseStack, bufferSource, buffer, packedLight, texture);
     }

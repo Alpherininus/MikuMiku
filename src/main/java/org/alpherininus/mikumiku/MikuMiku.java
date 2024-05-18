@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.renderer.DeathKnightRenderer;
+import org.alpherininus.mikumiku.common.entitys.animated.renderer.StairsRenderer;
 import org.alpherininus.mikumiku.common.entitys.animated.renderer.TPosingRenderer;
 import org.alpherininus.mikumiku.core.init.*;
 import org.slf4j.Logger;
@@ -60,6 +61,7 @@ public class MikuMiku {
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(EntityTypesInit.DK.get(), DeathKnightRenderer::new);
             EntityRenderers.register(EntityTypesInit.TP.get(), TPosingRenderer::new);
+            EntityRenderers.register(EntityTypesInit.STAIRS.get(), StairsRenderer::new);
 
         }
     }
