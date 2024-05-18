@@ -53,7 +53,6 @@ import java.util.UUID;
 
 public class StairsEntity extends Monster implements IAnimatable {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private final Player player = Minecraft.getInstance().player;
 
     private final AnimationFactory factory = new AnimationFactory(this);
     private final ServerBossEvent bossEvent = (ServerBossEvent)(new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.GREEN, BossEvent.BossBarOverlay.PROGRESS)).setDarkenScreen(false);
@@ -138,7 +137,7 @@ public class StairsEntity extends Monster implements IAnimatable {
     protected void customServerAiStep() {
         if (this.isNight()) {
             if (this.tickCount % 20 == 0) {
-                this.heal(10.0F);
+                this.heal(10.5F);
             }
         }
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
@@ -146,6 +145,7 @@ public class StairsEntity extends Monster implements IAnimatable {
         if (this.tickCount % 230 == 0) {
             getRandomNumber();
 
+            Player player = Minecraft.getInstance().player;
             assert player != null;
 
             if (getRandomNumber() == 3) {
@@ -186,7 +186,7 @@ public class StairsEntity extends Monster implements IAnimatable {
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> This is the end!"));
                 player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 45, 3));
 
-                level.playSound(this.player, player.getOnPos(), SoundEvents.END_PORTAL_SPAWN, SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
+                level.playSound(player, player.getOnPos(), SoundEvents.END_PORTAL_SPAWN, SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
                 player.die(DamageSource.MAGIC);
             }
             // outputRandomNumber();
