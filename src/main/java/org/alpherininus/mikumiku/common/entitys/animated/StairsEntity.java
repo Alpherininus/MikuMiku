@@ -149,17 +149,17 @@ public class StairsEntity extends Monster implements IAnimatable {
             assert player != null;
 
             if (getRandomNumber() == 3) {
-                this.player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> Now I'm (a little) motivated!"));
+                player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> Now I'm (a little) motivated!"));
             }
             if (getRandomNumber() == 1) {
-                this.player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 25, 3));
+                player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 25, 3));
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> Where's your motivation?"));
             }
             if (getRandomNumber() == 5) {
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> What's wrong?"));
             }
             if (getRandomNumber() == 7) {
-                this.player.addEffect(new MobEffectInstance(MobEffects.POISON, 25, 3));
+                player.addEffect(new MobEffectInstance(MobEffects.POISON, 25, 3));
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> Scum"));
             }
             if (getRandomNumber() == 9) {
@@ -171,7 +171,7 @@ public class StairsEntity extends Monster implements IAnimatable {
             }
 
             if (getRandomNumber() == 4) {
-                this.player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 25, 3));
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 25, 3));
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> Too easy."));
             }
 
@@ -184,10 +184,10 @@ public class StairsEntity extends Monster implements IAnimatable {
             }
             if (getRandomNumber() == 0) {
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> This is the end!"));
-                this.player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 45, 3));
+                player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 45, 3));
 
-                this.level.playSound(this.player, player.getOnPos(), SoundEvents.END_PORTAL_SPAWN, SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
-                this.player.die(DamageSource.MAGIC);
+                level.playSound(this.player, player.getOnPos(), SoundEvents.END_PORTAL_SPAWN, SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
+                player.die(DamageSource.MAGIC);
             }
             // outputRandomNumber();
         }
