@@ -49,6 +49,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class StairsEntity extends Monster implements IAnimatable {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -149,7 +150,7 @@ public class StairsEntity extends Monster implements IAnimatable {
             assert player != null;
 
             Level world = Minecraft.getInstance().level;
-            assert Objects.requireNonNull(world).getServer() != null;
+            assert world != null;
 
             if (getRandomNumber() == 3) {
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> Now I'm (a little) motivated!"));
@@ -187,10 +188,11 @@ public class StairsEntity extends Monster implements IAnimatable {
             }
             if (getRandomNumber() == 0) {
                 player.sendSystemMessage(Component.literal("<Stair, Godslayer of Oak> This is the end!"));
-                player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 99, 255));
-                player.addEffect(new MobEffectInstance(MobEffects.WITHER, 99, 255));
+                player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 45, 5));
+                player.addEffect(new MobEffectInstance(MobEffects.WITHER, 46, 5));
 
-                world.getServer().setDifficulty(Difficulty.HARD, false);
+                level.playSound(null, player.getOnPos(), SoundEvents.END_PORTAL_SPAWN, SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
+                player.die(DamageSource.MAGIC);
             }
             outputRandomNumber();
         }
