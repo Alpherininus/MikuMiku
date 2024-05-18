@@ -25,6 +25,11 @@ public class EntityTypesInit {
                     .sized(1f, 2.0f)
                     .build(new ResourceLocation(MikuMiku.MODID, "tposing").toString()));
 
+    public static final RegistryObject<EntityType<TPosingEntity>> STAIRS =
+            ENTITY_TYPES.register("stairs", () -> EntityType.Builder.of(TPosingEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f)
+                    .build(new ResourceLocation(MikuMiku.MODID, "stairs").toString()));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
