@@ -16,6 +16,7 @@ import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.renderer.DeathKnightRenderer;
 import org.alpherininus.mikumiku.common.entitys.animated.renderer.StairsRenderer;
 import org.alpherininus.mikumiku.common.entitys.animated.renderer.TPosingRenderer;
+import org.alpherininus.mikumiku.common.entitys.animated.renderer.WulfRenderer;
 import org.alpherininus.mikumiku.core.init.*;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
@@ -62,6 +63,7 @@ public class MikuMiku {
             EntityRenderers.register(EntityTypesInit.DK.get(), DeathKnightRenderer::new);
             EntityRenderers.register(EntityTypesInit.TP.get(), TPosingRenderer::new);
             EntityRenderers.register(EntityTypesInit.STAIRS.get(), StairsRenderer::new);
+            EntityRenderers.register(EntityTypesInit.WU.get(), WulfRenderer::new);
 
         }
     }

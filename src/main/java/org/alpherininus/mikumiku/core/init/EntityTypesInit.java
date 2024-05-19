@@ -11,6 +11,7 @@ import org.alpherininus.mikumiku.MikuMiku;
 import org.alpherininus.mikumiku.common.entitys.animated.DeathKnightEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.StairsEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
+import org.alpherininus.mikumiku.common.entitys.animated.WulfEntity;
 
 public class EntityTypesInit {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -30,6 +31,11 @@ public class EntityTypesInit {
             ENTITY_TYPES.register("stairs", () -> EntityType.Builder.of(StairsEntity::new, MobCategory.MONSTER)
                     .sized(1.0f, 1.0f)
                     .build(new ResourceLocation(MikuMiku.MODID, "stairs").toString()));
+
+    public static final RegistryObject<EntityType<WulfEntity>> WU =
+            ENTITY_TYPES.register("wulf", () -> EntityType.Builder.of(WulfEntity::new, MobCategory.MONSTER)
+                    .sized(1.5f, 1.5f)
+                    .build(new ResourceLocation(MikuMiku.MODID, "wulf").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

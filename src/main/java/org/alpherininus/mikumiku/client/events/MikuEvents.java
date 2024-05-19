@@ -15,6 +15,7 @@ import org.alpherininus.mikumiku.MikuMiku;
 import org.alpherininus.mikumiku.common.entitys.animated.DeathKnightEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.StairsEntity;
 import org.alpherininus.mikumiku.common.entitys.animated.TPosingEntity;
+import org.alpherininus.mikumiku.common.entitys.animated.WulfEntity;
 import org.alpherininus.mikumiku.core.init.EntityTypesInit;
 import org.alpherininus.mikumiku.core.init.ItemInit;
 import org.alpherininus.mikumiku.core.init.VillagerInit;
@@ -77,6 +78,8 @@ public class MikuEvents {
             event.put(EntityTypesInit.DK.get(), DeathKnightEntity.setAttributes());
             event.put(EntityTypesInit.TP.get(), TPosingEntity.setAttributes());
             event.put(EntityTypesInit.STAIRS.get(), StairsEntity.setAttributes());
+            event.put(EntityTypesInit.WU.get(), WulfEntity.setAttributes());
+
         }
 
     }
