@@ -27,6 +27,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -52,7 +53,7 @@ public class WulfEntity extends Monster implements IAnimatable {
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 250.5D)
-                .add(Attributes.ATTACK_DAMAGE, 5.5D)
+                .add(Attributes.ATTACK_DAMAGE, 3.5D)
                 .add(Attributes.ATTACK_SPEED, 1.75D)
                 .add(Attributes.MOVEMENT_SPEED, 0.55D).build();
     }
