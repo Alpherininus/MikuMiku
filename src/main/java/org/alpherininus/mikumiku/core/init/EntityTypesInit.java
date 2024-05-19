@@ -34,7 +34,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<WulfEntity>> WU =
             ENTITY_TYPES.register("wulf", () -> EntityType.Builder.of(WulfEntity::new, MobCategory.MONSTER)
-                    .sized(1.5f, 1.5f)
+                    .sized(1.9f, 1.9f)
                     .build(new ResourceLocation(MikuMiku.MODID, "wulf").toString()));
 
     public static void register(IEventBus eventBus) {

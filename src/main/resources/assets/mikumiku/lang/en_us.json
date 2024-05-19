@@ -1,10 +1,12 @@
 {
   "item.mikumiku.miku_block": "Miku Block",
   "item.mikumiku.miku_sword": "Miku Sword",
+  "item.mikumiku.wulf": "Wulf Sword",
 
   "block.mikumiku.miku_block": "Miku Block",
 
   "entity.mikumiku.stairs": "Stair, Godslayer of Oak",
+  "entity.mikumiku.wulf": "Wulf, The blade of the Birchforest",
   "death.attack.mikumiku.Stairs": "Stair, Godslayer of Oak - Wooded Magic",
 
   "entity.minecraft.villager.mikumiku.miku_master": "Miku Villager",

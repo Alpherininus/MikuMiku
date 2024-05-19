@@ -17,7 +17,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class WulfRenderer extends GeoEntityRenderer<WulfEntity> {
     public WulfRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new WulfModel());
-        this.shadowRadius = 1.3f;
+        this.shadowRadius = 1.5f;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class WulfRenderer extends GeoEntityRenderer<WulfEntity> {
                                     @Nullable MultiBufferSource bufferSource,
                                     @Nullable VertexConsumer buffer, int packedLight,
                                     ResourceLocation texture) {
-        poseStack.scale(1.5f, 1.5f, 1.5f);
+        poseStack.scale(1.9f, 1.9f, 1.9f);
 
         return super.getRenderType(animatable, partialTick, poseStack, bufferSource, buffer, packedLight, texture);
     }

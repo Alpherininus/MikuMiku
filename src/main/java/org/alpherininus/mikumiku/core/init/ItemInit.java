@@ -19,7 +19,7 @@ public class ItemInit {
             () -> new MikuSwordItem(Tiers.WOOD, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
-    public static final RegistryObject<Item> WULF_SWORD = ITEMS.register("wulf_sword",
+    public static final RegistryObject<Item> WULF_SWORD = ITEMS.register("wulf",
             () -> new WulfSwordItem(Tiers.NETHERITE, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
