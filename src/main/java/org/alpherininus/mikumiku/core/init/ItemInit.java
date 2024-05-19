@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.alpherininus.mikumiku.MikuMiku;
 import org.alpherininus.mikumiku.common.items.MikuSwordItem;
+import org.alpherininus.mikumiku.common.items.WulfSwordItem;
 import org.alpherininus.mikumiku.core.utils.materials.itemtier.ItemAttackDamage;
 import org.alpherininus.mikumiku.core.utils.materials.itemtier.ItemAttackSpeed;
 
@@ -16,6 +17,10 @@ public class ItemInit {
 
     public static final RegistryObject<Item> MIKU_SWORD = ITEMS.register("miku_sword",
             () -> new MikuSwordItem(Tiers.WOOD, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
+                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> WULF_SWORD = ITEMS.register("wulf_sword",
+            () -> new WulfSwordItem(Tiers.NETHERITE, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> DK_SPAWN_EGG = ITEMS.register("dk_spawn_egg",

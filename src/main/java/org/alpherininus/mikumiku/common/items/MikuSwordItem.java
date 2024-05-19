@@ -73,7 +73,6 @@ public class MikuSwordItem extends SwordItem {
 
     private void outputRandomNumber(Player player) {
         LOGGER.info("MikuSwordItem || " + Minecraft.getInstance().getUser().getName() + " Number is " + getRandomNumber());
-
     }
 
     private int getRandomNumber() {
