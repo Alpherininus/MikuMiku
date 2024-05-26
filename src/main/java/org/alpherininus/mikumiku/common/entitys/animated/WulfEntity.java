@@ -125,7 +125,6 @@ public class WulfEntity extends Monster implements IAnimatable {
     @Override
     protected void customServerAiStep() {
         // 4400
-        level.playSound(null, this.getOnPos(), SoundInit.GREAT_CRAFT_WOLF.get(), SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
         if (this.tickCount % 4400 == 0) {
             level.playSound(null, this.getOnPos(), SoundInit.GREAT_CRAFT_WOLF.get(), SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
         }
