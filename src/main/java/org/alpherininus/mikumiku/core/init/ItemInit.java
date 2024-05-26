@@ -8,7 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.alpherininus.mikumiku.MikuMiku;
 import org.alpherininus.mikumiku.common.items.MikuSwordItem;
-import org.alpherininus.mikumiku.common.items.WulfSwordItem;
+import org.alpherininus.mikumiku.common.items.WulfSpawnEggItem;
 import org.alpherininus.mikumiku.core.utils.materials.itemtier.ItemAttackDamage;
 import org.alpherininus.mikumiku.core.utils.materials.itemtier.ItemAttackSpeed;
 
@@ -17,10 +17,6 @@ public class ItemInit {
 
     public static final RegistryObject<Item> MIKU_SWORD = ITEMS.register("miku_sword",
             () -> new MikuSwordItem(Tiers.WOOD, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
-                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
-
-    public static final RegistryObject<Item> WULF_SWORD = ITEMS.register("wulf",
-            () -> new WulfSwordItem(Tiers.NETHERITE, ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.getSword(),
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> DK_SPAWN_EGG = ITEMS.register("dk_spawn_egg",
@@ -36,8 +32,8 @@ public class ItemInit {
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> WU_SPAWN_EGG = ITEMS.register("wulf_spawn_egg",
-            () -> new ForgeSpawnEggItem(EntityTypesInit.WU, 0x22b341, 0x19732e,
-                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+            () -> new WulfSpawnEggItem(EntityTypesInit.WU, 0x22b341, 0x19732e,
+                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT), ItemAttackDamage.Sword.getNetherite(), ItemAttackSpeed.setAttackSpeed(2.0f), Tiers.DIAMOND));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
