@@ -1,0 +1,10 @@
+{
+  "great_craft_wolf_sif": {
+    "subtitle": "sounds.mikumiku.boss.great_craft_wolf_sif",
+    "sounds": [ "mikumiku:boss/great_craft_wolf_sif" ]
+  },
+  "stairs": {
+    "subtitle": "mikumiku.subtitle.boss.stairs",
+    "sounds": [ "mikumiku:boss/stairs" ]
+  }
+}

@@ -23,6 +23,7 @@ public class PaintingInit {
     public static final RegistryObject<PaintingVariant> PAINTING_VARIANT_G = PAINTING_VARIANTS.register("paint_g", ()-> new PaintingVariant(x64, x64));
     public static final RegistryObject<PaintingVariant> PAINTING_VARIANT_H = PAINTING_VARIANTS.register("paint_h", ()-> new PaintingVariant(x64, 48));
     public static final RegistryObject<PaintingVariant> PAINTING_VARIANT_I = PAINTING_VARIANTS.register("paint_i", ()-> new PaintingVariant(48, x64));
+    public static final RegistryObject<PaintingVariant> PAINTING_VARIANT_J = PAINTING_VARIANTS.register("magictree", ()-> new PaintingVariant(x64, x64));
 
     public static void register(IEventBus eventBus) {
         PAINTING_VARIANTS.register(eventBus);

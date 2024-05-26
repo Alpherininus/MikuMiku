@@ -35,6 +35,7 @@ public class MikuMiku {
         VillagerInit.register(modEventBus);
         PaintingInit.register(modEventBus);
         EntityTypesInit.register(modEventBus);
+        SoundInit.SOUND_REG.register(modEventBus);
 
         GeckoLib.initialize();
 

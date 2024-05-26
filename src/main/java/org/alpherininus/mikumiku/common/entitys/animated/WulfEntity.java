@@ -28,6 +28,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import org.alpherininus.mikumiku.core.init.SoundInit;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -123,6 +124,17 @@ public class WulfEntity extends Monster implements IAnimatable {
 
     @Override
     protected void customServerAiStep() {
+        // 4400
+        level.playSound(null, this.getOnPos(), SoundInit.GREAT_CRAFT_WOLF.get(), SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
+        if (this.tickCount % 4400 == 0) {
+            level.playSound(null, this.getOnPos(), SoundInit.GREAT_CRAFT_WOLF.get(), SoundSource.AMBIENT, 1.5F, level.random.nextFloat() * 0.1f + 0.9F);
+        }
+
+        if (this.tickCount % 3400 == 0) {
+            this.heal(100.5F);
+
+        }
+
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
     }
 

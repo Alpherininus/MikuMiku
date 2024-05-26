@@ -35,6 +35,10 @@ public class ItemInit {
             () -> new ForgeSpawnEggItem(EntityTypesInit.STAIRS, 0x22b341, 0x19732e,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
+    public static final RegistryObject<Item> WU_SPAWN_EGG = ITEMS.register("wulf_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypesInit.WU, 0x22b341, 0x19732e,
+                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
